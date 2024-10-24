@@ -1,0 +1,90 @@
+definitions:
+  main.User:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    get:
+      consumes:
+      - application/json
+      description: get users
+      produces:
+      - application/json
+      responses: {}
+      summary: Show a Users list
+      tags:
+      - getUsers
+    post:
+      consumes:
+      - application/json
+      description: create users
+      parameters:
+      - description: User to create
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/main.User'
+      produces:
+      - application/json
+      responses: {}
+      summary: Create a User
+      tags:
+      - createUser
+    put:
+      consumes:
+      - application/json
+      description: edit users
+      parameters:
+      - description: User to edit
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/main.User'
+      produces:
+      - application/json
+      responses: {}
+      summary: Edit a User
+      tags:
+      - editUser
+  /users/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: delete user
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Remove a Users list
+      tags:
+      - removeUser
+    get:
+      consumes:
+      - application/json
+      description: get users
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Show a Users list
+      tags:
+      - getUsers
+swagger: "2.0"
